@@ -1,0 +1,32 @@
+# Fuzzing runtime artifacts — all regenerated, never committed.
+
+# Seed corpus: cmd/seedgen rebuilds it on every run.
+fuzz/corpus/
+
+# Crash + report output written by scripts/fuzz.sh ($FINDINGS), one dir per run.
+# Ignore the crashers, reproducers and per-target logs, but KEEP each run's
+# SUMMARY.md report (the table + reach/impact verdict) under version control.
+# The directory contents are ignored (not the directory itself) so the SUMMARY
+# negation can re-include — git cannot re-include a file under a fully-ignored
+# directory.
+fuzz/findings/*
+fuzz/findings-*/*
+
+# Captured run logs (per-target *.fuzz.log, panic dumps) and sweep/coverage output.
+*.log
+*.out
+
+# Build / test binaries.
+*.exe
+*.test
+
+# Editor / OS noise.
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# NOTE: fuzz/**/testdata/fuzz/ is deliberately NOT ignored — those are the
+# committed regression reproducers, the point of the whole tree. go-zenon/ is a
+# git submodule pinned to the fuzzed commit (see .gitmodules), not ignored.

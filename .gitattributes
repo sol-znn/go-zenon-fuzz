@@ -1,0 +1,13 @@
+# Keep LF in the repository regardless of a contributor's core.autocrlf, so a
+# Windows checkout can't rewrite files to CRLF.
+* text=auto eol=lf
+
+# Shell scripts MUST stay LF: a CRLF shebang breaks bash execution on Linux/CI.
+*.sh text eol=lf
+
+# Go source stays LF.
+*.go text eol=lf
+
+# Go fuzz corpus reproducers are byte-exact inputs — never apply any line-ending
+# conversion to them.
+fuzz/**/testdata/fuzz/** -text

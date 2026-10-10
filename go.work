@@ -1,0 +1,9 @@
+// Editor convenience: makes gopls treat the node checkout and the fuzz module
+// as one workspace. Builds and tests do not need it — the fuzz module resolves
+// the node through its own replace => ../go-zenon directive.
+go 1.23
+
+use (
+	./go-zenon
+	./fuzz
+)

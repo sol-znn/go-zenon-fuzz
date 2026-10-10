@@ -1,0 +1,3 @@
+[submodule "go-zenon"]
+	path = go-zenon
+	url = https://github.com/zenon-network/go-zenon.git
